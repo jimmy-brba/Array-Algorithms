@@ -1,1 +1,2 @@
 # Array-Algorithms
+This Python array class creates a array object of fixed size(10 unless size is provided while initializing the object). It contains various methods that can be performed on an array like merging, finding duplicates, sorting. It also converts an array to a mathematical Set. Union, Intersection and Difference can also be performed on Sets given that sets provided in args are sorted.
