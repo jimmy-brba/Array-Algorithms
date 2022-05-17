@@ -221,3 +221,43 @@ class Array:
         for item in self.arr[0:self.length]:
             dict[item]=1
         return [key for key in dict.keys() if dict[key]==0]
+
+    ##Find pair with sum=k
+    #Unsorted Version
+    def sumIsK(self,k):
+            for (i,item1) in enumerate(self.arr[0:self.length]):
+                for(j,item2) in enumerate(self.arr[i+1:self.length]):
+                    if item1+item2==k:
+                        return (i,j+i+1)
+
+    def sumIsKByHashing(self,k):
+        hash={i:0 for i in range(0,self.max())}
+        for item in self.arr[0:self.length]:
+            hash[item]=1
+            if hash.get(k-item,0)==1:
+                print(f'{item} + {k-item} = {k}')
+
+    def sumIsKSorted(self,k):
+        i=0
+        j=self.length-1
+        while(i<j):
+            if(self.arr[i]+self.arr[j]==k):
+                print(f'{self.arr[i]} + {self.arr[j]} = {k}')
+                i+=1
+                j-=1
+            elif(self.arr[i]+self.arr[j]<k):
+                i+=1
+            else:
+                j-=1
+
+    def min_max(self):
+        min=self.arr[0]
+        max=self.arr[0]
+        for item in self.arr[1:self.length]:
+            if item<min:
+                min=item
+            else:
+                if item>max:
+                    max=item
+
+        return (min,max)
